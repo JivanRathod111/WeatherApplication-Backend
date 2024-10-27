@@ -1,46 +1,75 @@
 package com.example.demo.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-//@Entity
+@Entity
 public class DailySummery {
-    private String date;           // Date for the summary
-    private double avgTemperature; // Average temperature
-    private double maxTemperature; // Maximum temperature
-    private double minTemperature; // Minimum temperature
-    private String dominantCondition; // Dominant weather condition
+	 @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
 
-    // Getters and setters
-    public String getDate() {
+	    private String city;  // City name
+	    private LocalDate date;  // Summary date
+
+	    private double averageTemperature;
+	    private double maximumTemperature;
+	    private double minimumTemperature;
+	    private String dominantCondition;
+	    
+	    
+
+    public String getCity() {
+			return city;
+		}
+
+		public void setCity(String city) {
+			this.city = city;
+		}
+
+	// Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public double getAvgTemperature() {
-        return avgTemperature;
+    public double getAverageTemperature() {
+        return averageTemperature;
     }
 
-    public void setAvgTemperature(double avgTemperature) {
-        this.avgTemperature = avgTemperature;
+    public void setAverageTemperature(double averageTemperature) {
+        this.averageTemperature = averageTemperature;
     }
 
-    public double getMaxTemperature() {
-        return maxTemperature;
+    public double getMaximumTemperature() {
+        return maximumTemperature;
     }
 
-    public void setMaxTemperature(double maxTemperature) {
-        this.maxTemperature = maxTemperature;
+    public void setMaximumTemperature(double maximumTemperature) {
+        this.maximumTemperature = maximumTemperature;
     }
 
-    public double getMinTemperature() {
-        return minTemperature;
+    public double getMinimumTemperature() {
+        return minimumTemperature;
     }
 
-    public void setMinTemperature(double minTemperature) {
-        this.minTemperature = minTemperature;
+    public void setMinimumTemperature(double minimumTemperature) {
+        this.minimumTemperature = minimumTemperature;
     }
 
     public String getDominantCondition() {
@@ -51,4 +80,3 @@ public class DailySummery {
         this.dominantCondition = dominantCondition;
     }
 }
-
